@@ -3,19 +3,17 @@ import { THEME } from "../../theme";
 
 export const styles = StyleSheet.create({
   container: {
-    justifyContent: "flex-start",
-    alignContent: "flex-start",
-    alignItems: "flex-start",
+    width: "100%",
+    padding: 32,
   },
   title: {
-    textAlign: "left",
-    color: "#fff",
-    fontSize: 24,
-    fontWeight: "900",
+    color: THEME.COLORS.TEXT,
+    fontSize: THEME.FONT_SIZE.LG,
+    fontFamily: THEME.FONT_FAMILY.BLACK,
   },
   subtitle: {
     color: THEME.COLORS.CAPTION_400,
-    fontSize: 16,
-    fontWeight: "400",
+    fontSize: THEME.FONT_SIZE.MD,
+    fontFamily: THEME.FONT_FAMILY.REGULAR,
   },
 });
