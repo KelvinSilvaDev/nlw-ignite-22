@@ -1,40 +1,31 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-
-interface ButtonProps {
-  title: string;
-}
-
-function Button(props: ButtonProps) {
-  return (
-    <TouchableOpacity style={styles.button}>
-      <Text style={styles.button}>{props.title}</Text>
-    </TouchableOpacity>
-  );
-}
+import { StatusBar } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { Background } from "./src/components/Background";
+import {
+  useFonts,
+  Inter_400Regular,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_900Black,
+} from "@expo-google-fonts/inter";
+import { Home } from "./src/screens/Home";
+import { Loading } from "./src/components/Loading";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_900Black,
+  });
   return (
-    <View style={styles.container}>
-      <Text>Hello React Native</Text>
-      <Button title="Botao" />
-      <StatusBar style="auto" />
-    </View>
+    <Background>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
+      {fontsLoaded ? <Home /> : <Loading />}
+    </Background>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  button: {
-    backgroundColor: "#8B5CF6",
-    borderRadius: 6,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    color: "#fff",
-  },
-});
